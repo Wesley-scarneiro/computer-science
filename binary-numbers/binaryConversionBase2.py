@@ -22,14 +22,14 @@ def binaryConversionV1(number):
 def binaryConversionV2(number):
      if number < 0:
         raise ValueError("Number cannot be negative")
+     if number == 0:
+         return 0
      return binaryConversionRecursive(number)
      
-def binaryConversionRecursive(number, result=""):
-    result = f"{number % 2}{result}"
-    number = number // 2
-    if number != 0:
-        return binaryConversionRecursive(number, result)
-    return result
+def binaryConversionRecursive(number):
+    if number == 0:
+        return ""
+    return binaryConversionRecursive(number // 2) + str(number % 2)
 
 def safely(function, number):
     try:
